@@ -6,9 +6,7 @@ import eu.rebase.marsrover.cli.PositionInputParser;
 import eu.rebase.marsrover.domain.Grid;
 import eu.rebase.marsrover.domain.MarsRover;
 import eu.rebase.marsrover.exception.InvalidGridPositionException;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 public class Application {
     public static void main(String[] args) {
         var initPositionString = args[0];
