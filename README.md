@@ -1,4 +1,5 @@
-# Mars Rover KATA
+# Mars Rover KATA 
+## Version: 1.4, Last updated: 2021-02-02
 
 You are part of the team that explores Mars by sending remotely 
 controlled vehicles to the surface of the planet.
@@ -48,4 +49,4 @@ Example:
 ``./gradlew runMarsRoverApplication -ProverInitState=<roverInitState> -ProverCommands=<roverCommands>``
 
 Example:
-``java -jar mars-rover-1.0-SNAPSHOT.jar -ProverInitState="4|2|EAST" -ProverCommands="FLFFFRFLB"``
+``./gradlew runMarsRoverApplication -ProverInitState="4|2|EAST" -ProverCommands="FLFFFRFLB"``

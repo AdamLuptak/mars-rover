@@ -35,7 +35,8 @@ public class MarsRover {
                 case 'R' -> moveRight();
                 case 'F' -> moveForward();
                 case 'B' -> moveBackward();
-                default -> throw new UnsupportedRoverCommandException("Unsupported rover move command: %s".formatted(c));
+                default ->
+                        throw new UnsupportedRoverCommandException("Unsupported rover move command: %s".formatted(c));
             }
         }
         return "(%d, %d) %s".formatted(coordinate.x(), coordinate.y(), cardinalDirection);
@@ -50,16 +51,26 @@ public class MarsRover {
     }
 
     private void moveBackward() {
-        var nextState = stateMap.get(cardinalDirection);
-        var x = this.coordinate.x() - nextState.deltaX();
-        var y = this.coordinate.y() - nextState.deltaY();
-        coordinate = grid.wrapCoordinate(x, y);
+        var nextCoordinate = nextMoveBackwardCoordinate();
+        coordinate = grid.wrapCoordinate(nextCoordinate);
     }
 
     private void moveForward() {
+        var nextCoordinate = nextMoveForwardCoordinate();
+        coordinate = grid.wrapCoordinate(nextCoordinate);
+    }
+
+    private Coordinate nextMoveForwardCoordinate() {
         var nextState = stateMap.get(cardinalDirection);
-        var x = this.coordinate.x() + nextState.deltaX();
-        var y = this.coordinate.y() + nextState.deltaY();
-        coordinate = grid.wrapCoordinate(x, y);
+        var x = this.coordinate.x() + nextState.deltaMoveX();
+        var y = this.coordinate.y() + nextState.deltaMoveY();
+        return new Coordinate(x, y);
+    }
+
+    private Coordinate nextMoveBackwardCoordinate() {
+        var nextState = stateMap.get(cardinalDirection);
+        var x = this.coordinate.x() - nextState.deltaMoveX();
+        var y = this.coordinate.y() - nextState.deltaMoveY();
+        return new Coordinate(x, y);
     }
 }

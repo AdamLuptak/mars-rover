@@ -27,6 +27,6 @@ class PositionInputParserTest {
         // when
         assertThatThrownBy(() ->  positionInputParser.parse("WRONG4|2|EAST"))
                 // then
-                .hasMessage("Cannot parse position from: WRONG4|2|EAST");
+                .hasMessage("Cannot parse position from: WRONG4|2|EAST cause: For input string: \"WRONG4\", Correct format x|y|CardinalDirection");
     }
 }

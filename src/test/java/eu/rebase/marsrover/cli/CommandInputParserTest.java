@@ -24,7 +24,7 @@ class CommandInputParserTest {
         // when
         assertThatThrownBy(() -> commandParser.parse(""))
                 // then
-                .hasMessage("Cannot parse position from: ");
+                .hasMessage("Cannot parse position from:  only 'LRFB' is supported");
     }
 
     @Test
@@ -34,7 +34,7 @@ class CommandInputParserTest {
         // when
         assertThatThrownBy(() -> commandParser.parse(null))
                 // then
-                .hasMessage("Cannot parse position from: null");
+                .hasMessage("Cannot parse position from: null only 'LRFB' is supported");
     }
 
     @Test
@@ -44,6 +44,6 @@ class CommandInputParserTest {
         // when
         assertThatThrownBy(() -> commandParser.parse("WRONGLFBLR"))
                 // then
-                .hasMessage("Cannot parse position from: WRONGLFBLR");
+                .hasMessage("Cannot parse position from: WRONGLFBLR only 'LRFB' is supported");
     }
 }

@@ -21,24 +21,24 @@ public class Grid {
         this.totalWidth = abs(minWidth) + abs(maxWidth);
     }
 
-    public Coordinate wrapCoordinate(Integer x, Integer y) {
-        var nextX = x;
-        var nextY = y;
+    public Coordinate wrapCoordinate(Coordinate coordinate) {
+        var nextX = coordinate.x();
+        var nextY = coordinate.y();
 
         if (nextY > maxHeight) {
-            nextY = y - totalHeight;
+            nextY = nextY - totalHeight;
         }
 
         if (nextY < minHeight) {
-            nextY = y + totalHeight;
+            nextY = nextY + totalHeight;
         }
 
         if (nextX > maxWidth) {
-            nextX = x - totalWidth;
+            nextX = nextX - totalWidth;
         }
 
         if (nextX < minWidth) {
-            nextX = x + totalWidth;
+            nextX = nextX + totalWidth;
         }
 
         return new Coordinate(nextX, nextY);
@@ -51,4 +51,5 @@ public class Grid {
         return x >= minWidth && x <= maxWidth &&
                 y >= minHeight && y <= maxHeight;
     }
+
 }

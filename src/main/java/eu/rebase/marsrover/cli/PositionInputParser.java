@@ -20,7 +20,7 @@ public class PositionInputParser {
 
             return new Position(new Coordinate(Integer.valueOf(x), Integer.valueOf(y)), direction);
         } catch (Exception e) {
-            throw new IllegalArgumentException("Cannot parse position from: " + initPositionString);
+            throw new IllegalArgumentException("Cannot parse position from: %s cause: %s, Correct format x|y|CardinalDirection".formatted(initPositionString,e.getMessage()));
         }
     }
 }
